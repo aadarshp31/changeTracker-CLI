@@ -1,6 +1,6 @@
 const diff = require('diff')
 const fs = require('fs')
-const { result } = require('lodash')
+const path = require('path')
 
 const compareFiles = (filePath1, filePath2, extName) => {
 	let isModified = false
@@ -48,6 +48,53 @@ const compareFiles = (filePath1, filePath2, extName) => {
 
 const compareFolders = (folderPath1, folderPath2) => {
 	let result = []
+
+	if (!fs.existsSync(folderPath1) || !fs.existsSync(folderPath2)) {
+		console.log('Please provide valid path for the folders'.bold.white)
+		process.exit(1)
+	}
+
+	const folder1 = fs.readdirSync(folderPath1)
+	const folder2 = fs.readdirSync(folderPath2)
+
+	folder1.forEach(file => {
+		if (folder2.includes(file)) {
+			result = [...result, { name: file, isModified: false, isDeleted: false }]
+		} else {
+			result = [...result, { name: file, isModified: false, isDeleted: true }]
+		}
+	})
+
+	folder2.forEach(file => {
+		if (folder1.includes(file)) {
+			const filePath1 = folderPath1 + `/${file}`
+			const filePath2 = folderPath2 + `/${file}`
+			const extName = path.extname(file)
+
+			const { differences, isModified } = compareFiles(
+				filePath1,
+				filePath2,
+				extName
+			)
+
+			if (isModified) {
+				result = result.map(child => {
+					if (child.name === file) {
+						child.changes = differences
+						child.isModified = true
+						child.isDeleted = false
+						child.isAdded = false
+					}
+					return child
+				})
+			}
+			return
+		}
+		result = [
+			...result,
+			{ name: file, isModified: false, isDeleted: false, isAdded: true },
+		]
+	})
 
 	return result
 }

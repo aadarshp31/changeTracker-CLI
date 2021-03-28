@@ -34,7 +34,6 @@ test('should track changes between two folders', () => {
 		path.join(__dirname, 'assets', 'folder1'),
 		path.join(__dirname, 'assets', 'folder2')
 	)
-	console.log(result)
 	expect(result[0].isModified).toBeTruthy()
 	expect(result[1].isModified).toBeFalsy()
 	expect(result[2].isModified).toBeFalsy()
