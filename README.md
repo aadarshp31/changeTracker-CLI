@@ -1,4 +1,4 @@
-# changeTracker-CLI
+# diffTool-CLI
 
 This is a CLI application that tracks changes between two folders' contents and file changes.
 
@@ -35,8 +35,8 @@ Aspiring Full-stack Developer with proficiency in MEAN, MERN stack application d
 
 #### Have an interesting topic to discuss? Connect with me here!
 
-- [Email](mailto:adarshpandey.in@gmail.com) : adarshpandey.in@gmail.com
-- [LinkedIn](https://www.linkedin.com/in/aadarshp31/) : https://www.linkedin.com/in/aadarshp31
-- [Website](https://www.adarshpandey.in) : https://www.adarshpandey.in
-- [Ecommerce Demo](https://www.ecommerce.adarshpandey.in/) : https://www.ecommerce.adarshpandey.in
-- [Video Streaming App](https://github.com/cdacgroup16/streameo) : https://github.com/cdacgroup16/streameo
+- Email : adarshpandey.in@gmail.com
+- LinkedIn : https://www.linkedin.com/in/aadarshp31
+- Website : https://www.adarshpandey.in
+- Ecommerce Demo : https://www.ecommerce.adarshpandey.in
+- Video Streaming App : https://github.com/cdacgroup16/streameo
