@@ -1,5 +1,6 @@
 const diff = require('diff')
 const fs = require('fs')
+const { result } = require('lodash')
 
 const compareFiles = (filePath1, filePath2, extName) => {
 	let isModified = false
@@ -45,4 +46,10 @@ const compareFiles = (filePath1, filePath2, extName) => {
 	return { differences, isModified }
 }
 
-module.exports = { compareFiles }
+const compareFolders = (folderPath1, folderPath2) => {
+	let result = []
+
+	return result
+}
+
+module.exports = { compareFiles, compareFolders }
